@@ -57,9 +57,9 @@ export default {
   },
 
   social: {
-    email: "mailto:gricelovecchio149@gmail.com",
     github: "https://github.com/rilasa",
     twitter: "https://x.com/Griceloveecho",
+    email: "mailto:gricelovecchio149@gmail.com",
     //bilibili: https://space.bilibili.com/362852566?spm_id_from=333.33.0.0,
     //facebook: "https://www.facebook.com/yourname",
     //google: "https://plus.google.com/yourname",
@@ -244,9 +244,9 @@ export default {
     ]
   },
   triangle_badge: {
-    enable: false,
+    enable: true,
     type: "github",
-    link: "https://github.com/D-Sketon/astro-theme-reimu",
+    link: "https://github.com/rilasa/my-blog",
   },
   // whether to display the notification when the article is outdated
   outdate: {
