@@ -15,7 +15,7 @@ import rehypeLazyLoadImage from './src/plugins/lazyLoadImage.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://blog.griceloveecho.top/',
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex, rehypeLazyLoadImage],
@@ -40,7 +40,7 @@ export default defineConfig({
   }), mdx(), sitemap(), icon(), react()],
   vite: {
     plugins: [
-     Font.vite({
+      Font.vite({
         scanFiles: ['src/**/*.{ts,tsx,js,jsx,md,mdx,astro,yml}']
       }),
     ]

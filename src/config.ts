@@ -1,16 +1,16 @@
 export default {
   site: {
-    title: "My Blog",
-    subtitle: "My Blog Subtitle",
-    description: "D-Sketon's blog",
-    keywords: "D-Sketon, blog, astro, theme",
-    author: "D-Sketon",
+    title: "Griceの小屋",
+    subtitle: "Just For Grice XD",
+    description: "A personal bolg for reading notes...",
+    keywords: "Grice, blog, astro, Medical, law",
+    author: "Grice",
     language: "zh-CN",
   },
 
   sidebar: {
-    avatar: "/images/avatar.webp",
-    position: "right", // left or right
+    avatar: "/images/avatar.jpg",
+    position: "left", // left or right
   },
 
   widgets: ["recent_posts", "category", "tag", "tagcloud"],
@@ -36,12 +36,12 @@ export default {
   },
 
   footer: {
-    since: 2020, // 2020 - current year
+    since: 2026, // 2020 - current year
     powered: true,
     count: true,
     busuanzi: true,
     icp: {
-      icpnumber: "",
+      icpnumber: "辽ICP备2026016628号-1",
       beian: "",
       recordcode: "",
     },
@@ -57,11 +57,12 @@ export default {
   },
 
   social: {
-    // email: mailto:xxx@gmail.com
-    github: "https://github.com/yourname",
-    google: "https://plus.google.com/yourname",
-    twitter: "https://twitter.com/yourname",
-    facebook: "https://www.facebook.com/yourname",
+    email: "mailto:gricelovecchio149@gmail.com",
+    github: "https://github.com/rilasa",
+    twitter: "https://x.com/Griceloveecho",
+    //bilibili: https://space.bilibili.com/362852566?spm_id_from=333.33.0.0,
+    //facebook: "https://www.facebook.com/yourname",
+    //google: "https://plus.google.com/yourname",
     // instagram: https://www.instagram.com/yourname
     // linkedin: https://www.linkedin.com/in/yourname
     // pinterest: https://www.pinterest.com/yourname
@@ -70,7 +71,6 @@ export default {
     // flickr: https://www.flickr.com/photos/yourname
     // dribbble: https://dribbble.com/yourname
     // behance: https://www.behance.net/yourname
-    // bilibili: https://space.bilibili.com/yourname
     // weibo: https://weibo.com/yourname
     // zhihu: https://www.zhihu.com/people/yourname
     // reddit: https://www.reddit.com/user/yourname
@@ -190,7 +190,7 @@ export default {
 
   preloader: {
     enable: true,
-    text: "少女祈祷中...",
+    text: "ichigo girl...",
     rotate: true, // whether to rotate the icon
   },
 
