@@ -69,7 +69,7 @@ importers:
         specifier: ^11.12.3
         version: 11.12.3
       mouse-firework:
-        specifier: ^0.3.0-beta.1
+        specifier: 0.3.0-beta.1
         version: 0.3.0-beta.1
       photoswipe:
         specifier: ^5.4.4
@@ -1995,8 +1995,8 @@ packages:
   cn-font-metrics@2.1.6:
     resolution: {integrity: sha512-FwUzUb2SKm3QO6Jnb25kr0S8MqmfoZ43EJxDro8lV9KFlSPXvGihrM4TyMFaqMgi0HCRMcGdPzI1NANHlxDoug==}
 
-  cn-font-split@7.4.1:
-    resolution: {integrity: sha512-T3tGE+Vo+T5RP1O8gfWdXKylI2DDPVUAbSUx2B9Tj3+cxl662keWmB3I4zlSgJvy53ADYknnADJDcHPwdiuitA==}
+  cn-font-split@7.4.3:
+    resolution: {integrity: sha512-qAOyG1P20aWQJlFfKqdPIQeKL2y1sHbaoy76gaEVgtBTN4Z00IDHVpzGU9bNqdXu7nZSDdyWV65llsvKah2RSg==}
     hasBin: true
 
   collapse-white-space@2.1.0:
@@ -3234,8 +3234,8 @@ packages:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
 
-  koffi@2.15.0:
-    resolution: {integrity: sha512-174BTuWK7L42Om7nDWy9YOTXj6Dkm14veuFf5yhVS5VU6GjtOI1Wjf+K16Z0JvSuZ3/NpkVzFBjE1oKbthTIEA==}
+  koffi@2.10.0:
+    resolution: {integrity: sha512-TkCU8t2KE/ZcWGh87nRvqMPg0p2t+MXCz/6zAmQohf2UKyVPjGnx0suY88EeQbrP9aIMDVqgUu2j9phy/srqng==}
 
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
@@ -7030,13 +7030,13 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  cn-font-split@7.4.1:
+  cn-font-split@7.4.3:
     dependencies:
       buffer: 6.0.3
       commander: 12.1.0
       fs-extra: 11.3.3
       google-protobuf: 3.21.4
-      koffi: 2.15.0
+      koffi: 2.10.0
       proto-to-cli: 1.2.1
       set-value: 4.1.0
 
@@ -8633,7 +8633,7 @@ snapshots:
 
   kleur@3.0.3: {}
 
-  koffi@2.15.0: {}
+  koffi@2.10.0: {}
 
   kolorist@1.8.0: {}
 
@@ -10770,7 +10770,7 @@ snapshots:
   vite-plugin-font@5.1.2:
     dependencies:
       cn-font-metrics: 2.1.6
-      cn-font-split: 7.4.1
+      cn-font-split: 7.4.3
       fontaine: 0.6.0
       fs-extra: 11.3.3
       glob: 11.1.0
