@@ -1,15 +1,15 @@
 export default {
   site: {
     title: "Griceの小屋",
-    subtitle: "Just For Grice XD",
-    description: "A personal bolg for reading notes...",
+    subtitle: "Just For Grice",
+    description: "苺girl",
     keywords: "Grice, blog, astro, Medical, law",
     author: "Grice",
     language: "zh-CN",
   },
 
   sidebar: {
-    avatar: "/images/avatar.jpg",
+    avatar: "/images/avatar.webg",
     position: "left", // left or right
   },
 
