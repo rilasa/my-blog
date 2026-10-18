@@ -13,7 +13,7 @@ export default {
     position: "left", // left or right
   },
 
-  widgets: ["recent_posts", "category", "tag", "tagcloud"],
+  widgets: ["category"],
 
   menu: [
     { name: "home", url: "/" },
@@ -21,7 +21,7 @@ export default {
     { name: "about", url: "/about" },
   ],
 
-  banner: "/images/banner.webp", // which means themes/reimu/source/images/banner.webp
+  banner: "/images/banner.png", // which means themes/reimu/source/images/banner.webp
   // You can also write it in the form of the following url
   // banner: "https://example.com"
 
