@@ -44,9 +44,8 @@ const parsedContent = (
             <img
               src={urlFor(item.cover || randomCover() || BANNER)}
               alt={c.name}
-              loading="lazy"
+              loading="eager"
               decoding="async"
-              fetchpriority="low"
             />
             <h2>{c.name}</h2>
             <h3>{_p("home_categories.count", c.count)}</h3>
