@@ -240,7 +240,7 @@ export default {
     content: [
       {
         categories: "Blog",
-        cover: 'public/images/category-cover.png'
+        cover: '/images/category-cover.png'
       },
     ]
   },
