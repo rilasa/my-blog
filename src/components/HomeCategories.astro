@@ -44,7 +44,8 @@ const parsedContent = (
             <img
               src={urlFor(item.cover || randomCover() || BANNER)}
               alt={c.name}
-              loading="eager"
+              loading="lazy"
+              fetchpriority="low"
               decoding="async"
             />
             <h2>{c.name}</h2>
