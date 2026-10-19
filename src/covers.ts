@@ -1,8 +1,8 @@
 export default [
-  "images/cover/cover1.png",
-  "images/cover/cover2.png",
-  "images/cover/cover3.png",
-  "images/cover/cover4.png",
-  "images/cover/cover5.png",
-  "images/cover/cover6.png"
+  "images/cover-webp/cover1.webp",
+  "images/cover-webp/cover2.webp",
+  "images/cover-webp/cover3.webp",
+  "images/cover-webp/cover4.webp",
+  "images/cover-webp/cover5.webp",
+  "images/cover-webp/cover6.webp"
 ];
