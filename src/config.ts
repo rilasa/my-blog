@@ -21,7 +21,7 @@ export default {
     { name: "about", url: "/about" },
   ],
 
-  banner: "/images/banner.jpg", // which means themes/reimu/source/images/banner.webp
+  banner: "/images/banner.webp", // which means themes/reimu/source/images/banner.webp
   // You can also write it in the form of the following url
   // banner: "https://example.com"
 
