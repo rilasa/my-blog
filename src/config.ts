@@ -21,13 +21,13 @@ export default {
     { name: "about", url: "/about" },
   ],
 
-  banner: "/images/banner.png", // which means themes/reimu/source/images/banner.webp
+  banner: "/images/banner.jpg", // which means themes/reimu/source/images/banner.webp
   // You can also write it in the form of the following url
   // banner: "https://example.com"
 
   // If you want to use the srcset attribute, please enable it
   banner_srcset: {
-    enable: true,
+    enable: false,
     srcset: [
       { src: "/images/banner-600w.webp", media: "(max-width: 479px)" },
       { src: "/images/banner-800w.webp", media: "(max-width: 799px)" },
@@ -39,7 +39,7 @@ export default {
     since: 2026, // 2020 - current year
     powered: true,
     count: true,
-    busuanzi: true,
+    busuanzi: false,
     icp: {
       icpnumber: "辽ICP备2026016628号-1",
       beian: "",
@@ -191,7 +191,7 @@ export default {
   preloader: {
     enable: true,
     text: "ichigo girl...",
-    rotate: true, // whether to rotate the icon
+    rotate: false, // whether to rotate the icon
   },
 
   // see https://github.com/D-Sketon/mouse-firework
@@ -236,10 +236,11 @@ export default {
   },
   // show categories card on home page
   home_categories: {
-    enable: false,
+    enable: true,
     content: [
       {
-        categories: ""
+        categories: "Blog",
+        cover: 'public/images/category-cover.png'
       },
     ]
   },

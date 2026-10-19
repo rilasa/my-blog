@@ -1,7 +1,8 @@
 export default [
-  "https://d-sketon.top/img/backwebp/bg1.webp",
-  "https://d-sketon.top/img/backwebp/bg4.webp",
-  "https://d-sketon.top/img/backwebp/bg7.webp",
-  "https://d-sketon.top/img/backwebp/bg8.webp",
-  "https://d-sketon.top/img/backwebp/bg10.webp",
+  "public/cover/cover1.png",
+  "public/cover/cover2.png",
+  "public/cover/cover3.png",
+  "public/cover/cover4.png",
+  "public/cover/cover5.png",
+  "public/cover/cover6.png"
 ];

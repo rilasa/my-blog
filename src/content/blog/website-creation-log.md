@@ -3,7 +3,7 @@ title: "建站日志"
 description: '介绍建站过程 日志'
 pubDate: 2026-10-18
 categories: ['Blog']
-tags: ['astro', 'vercel' , 'log']
+tags: ['astro', 'vercel']
 excerpt: 介绍建站原因及过程
 ---
 
