@@ -182,7 +182,7 @@ export default {
       link: true,
       title: true,
       date: false,
-      updated: false,
+      updated: true,
       license: true,
       license_type: 'by-nc-sa',
     },
@@ -196,7 +196,7 @@ export default {
 
   // see https://github.com/D-Sketon/mouse-firework
   firework: {
-    enable: true,
+    enable: false,
     disable_on_mobile: false,
     options: {
       excludeElements: ["a", "button"],

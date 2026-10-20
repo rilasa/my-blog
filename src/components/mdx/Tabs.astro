@@ -157,6 +157,7 @@ div.tabs {
 
       currentTab = index;
       updateIndicator(index);
+      tabs.dispatchEvent(new CustomEvent("tabs:change", { bubbles: true }));
     }
 
     tabItems.forEach((tab, index) => {

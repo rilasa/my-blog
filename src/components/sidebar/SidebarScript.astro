@@ -19,6 +19,103 @@
   };
 
   let cleanupFunctions: (() => void)[] = [];
+  let tocCleanupFunctions: (() => void)[] = [];
+  const originalTocItems = new WeakMap<HTMLOListElement, HTMLLIElement[]>();
+
+  function updateTocForActiveTab() {
+    document
+      .querySelectorAll<HTMLOListElement>(".sidebar-toc-wrapper > ol.toc")
+      .forEach((root) => {
+        // 保存原始目录项，避免切换后无法恢复
+        let allItems = originalTocItems.get(root);
+
+        if (!allItems) {
+          allItems = Array.from(
+            root.querySelectorAll<HTMLLIElement>("li.toc-item"),
+          );
+
+          originalTocItems.set(root, allItems);
+        }
+
+        // 先根据标题 ID 判断目录项属于哪个 Tab
+        const visibleItems = allItems.filter((item) => {
+          const link = item.querySelector<HTMLAnchorElement>(
+            ":scope > a.toc-link",
+          );
+
+          const href = link?.getAttribute("href");
+
+          if (!href?.startsWith("#")) return true;
+
+          let headingId: string;
+
+          try {
+            headingId = decodeURIComponent(href.slice(1));
+          } catch {
+            return false;
+          }
+
+          const heading = document.getElementById(headingId);
+
+          // 找不到对应标题时不显示该目录项
+          if (!heading) return false;
+
+          const pane = heading.closest<HTMLElement>(".tab-pane");
+
+          // Tab 外的标题保留；Tab 内的标题只显示活动 Tab 的内容
+          return !pane || pane.classList.contains("active");
+        });
+
+        // 清理旧的子目录结构
+        allItems.forEach((item) => {
+          item.querySelector(":scope > ol.toc-child")?.remove();
+
+          item.classList.remove("active", "current");
+        });
+
+        root.replaceChildren();
+
+        // 根据原始目录层级重建目录树
+        const stack: Array<{
+          item: HTMLLIElement;
+          depth: number;
+        }> = [];
+
+        visibleItems.forEach((item) => {
+          const levelClass = Array.from(item.classList).find((name) =>
+            /^toc-level-\d+$/.test(name),
+          );
+
+          const depth = levelClass
+            ? Number(levelClass.replace("toc-level-", ""))
+            : 1;
+
+          while (stack.length > 0 && stack[stack.length - 1].depth >= depth) {
+            stack.pop();
+          }
+
+          if (stack.length === 0) {
+            root.appendChild(item);
+          } else {
+            const parent = stack[stack.length - 1].item;
+
+            let children = parent.querySelector<HTMLOListElement>(
+              ":scope > ol.toc-child",
+            );
+
+            if (!children) {
+              children = document.createElement("ol");
+              children.className = "toc-child";
+              parent.appendChild(children);
+            }
+
+            children.appendChild(item);
+          }
+
+          stack.push({ item, depth });
+        });
+      });
+  }
 
   function initSidebarToggle() {
     const tocBtnHandler = function (this: HTMLElement) {
@@ -34,7 +131,7 @@
       $$(".sidebar-common-btn").forEach((el) => el.classList.add("current"));
       $$(".sidebar-toc-btn").forEach((el) => el.classList.remove("current"));
       $$(".sidebar-common-sidebar").forEach((el) =>
-        el.classList.remove("hidden")
+        el.classList.remove("hidden"),
       );
       $$(".sidebar-toc-sidebar").forEach((el) => el.classList.add("hidden"));
     };
@@ -42,14 +139,14 @@
     $$(".sidebar-toc-btn").forEach((btn) => {
       btn.addEventListener("click", tocBtnHandler);
       cleanupFunctions.push(() =>
-        btn.removeEventListener("click", tocBtnHandler)
+        btn.removeEventListener("click", tocBtnHandler),
       );
     });
 
     $$(".sidebar-common-btn").forEach((btn) => {
       btn.addEventListener("click", commonBtnHandler);
       cleanupFunctions.push(() =>
-        btn.removeEventListener("click", commonBtnHandler)
+        btn.removeEventListener("click", commonBtnHandler),
       );
     });
   }
@@ -79,14 +176,14 @@
     if (mainNavToggle) {
       mainNavToggle.addEventListener("click", mainNavToggleHandler);
       cleanupFunctions.push(() =>
-        mainNavToggle.removeEventListener("click", mainNavToggleHandler)
+        mainNavToggle.removeEventListener("click", mainNavToggleHandler),
       );
     }
 
     if (mask) {
       mask.addEventListener("click", maskClickHandler);
       cleanupFunctions.push(() =>
-        mask.removeEventListener("click", maskClickHandler)
+        mask.removeEventListener("click", maskClickHandler),
       );
     }
 
@@ -100,7 +197,7 @@
     $$("#mobile-nav .toc-link").forEach((link) => {
       link.addEventListener("click", tocLinkHandler);
       cleanupFunctions.push(() =>
-        link.removeEventListener("click", tocLinkHandler)
+        link.removeEventListener("click", tocLinkHandler),
       );
     });
 
@@ -116,19 +213,27 @@
     $$("#mobile-nav .sidebar-menu-link-dummy").forEach((link) => {
       link.addEventListener("click", menuLinkHandler);
       cleanupFunctions.push(() =>
-        link.removeEventListener("click", menuLinkHandler)
+        link.removeEventListener("click", menuLinkHandler),
       );
     });
   }
 
   function initTocScroll() {
+    // 先清理上一次的监听器，避免重复绑定
+    tocCleanupFunctions.forEach((fn) => fn());
+    tocCleanupFunctions = [];
+
     const sidebar = $("#sidebar");
+
+    // 如果找不到侧边栏，就停止执行
     if (!sidebar) return;
 
     const navItems =
       getComputedStyle(sidebar).display === "block"
         ? Array.from($$("#sidebar .sidebar-toc-wrapper li"))
         : Array.from($$("#mobile-nav .sidebar-toc-wrapper li"));
+
+    // 从这里开始，继续保留你原来的代码
 
     if (!navItems.length) return;
 
@@ -138,8 +243,8 @@
       event.preventDefault();
       const target = document.getElementById(
         decodeURI(
-          (event.currentTarget as HTMLAnchorElement).getAttribute("href")!
-        ).slice(1)
+          (event.currentTarget as HTMLAnchorElement).getAttribute("href")!,
+        ).slice(1),
       );
       if (!target) return;
       activeLock = index;
@@ -163,7 +268,7 @@
           anchorClickHandlers.set(link, handler);
         }
         const anchor = document.getElementById(
-          decodeURI(link?.getAttribute("href") || "").slice(1)
+          decodeURI(link?.getAttribute("href") || "").slice(1),
         );
         if (!anchor) return null;
         const alink = anchor.querySelector("a") as HTMLAnchorElement;
@@ -183,7 +288,7 @@
       $$(".sidebar-toc-wrapper .active, .sidebar-toc-wrapper .current").forEach(
         (el) => {
           el.classList.remove("active", "current");
-        }
+        },
       );
 
       sections.forEach((el) => {
@@ -199,8 +304,11 @@
           parent.classList.add("active");
           const parentLink = document.getElementById(
             decodeURI(
-              parent.querySelector("a.toc-link")!.getAttribute("href")!.slice(1)
-            )
+              parent
+                .querySelector("a.toc-link")!
+                .getAttribute("href")!
+                .slice(1),
+            ),
           );
           if (parentLink) {
             parentLink.classList.add("active");
@@ -250,14 +358,14 @@
       {
         rootMargin: "0px 0px -100% 0px",
         threshold: 0,
-      }
+      },
     );
 
     sections.forEach((element) => {
       element && observer.observe(element);
     });
 
-    cleanupFunctions.push(() => {
+    tocCleanupFunctions.push(() => {
       observer.disconnect();
       anchorClickHandlers.forEach((handler, link) => {
         link.removeEventListener("click", handler);
@@ -268,15 +376,26 @@
   function cleanup() {
     cleanupFunctions.forEach((fn) => fn());
     cleanupFunctions = [];
+
+    tocCleanupFunctions.forEach((fn) => fn());
+    tocCleanupFunctions = [];
   }
 
   function init() {
     initSidebarToggle();
     initMobileNav();
+    updateTocForActiveTab();
+    initTocScroll();
+  }
+
+  function handleTabsChange() {
+    updateTocForActiveTab();
     initTocScroll();
   }
 
   init();
+
+  document.addEventListener("tabs:change", handleTabsChange);
   document.addEventListener("astro:page-load", init);
   document.addEventListener("astro:before-swap", cleanup);
 </script>

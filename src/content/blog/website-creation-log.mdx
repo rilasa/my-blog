@@ -1,0 +1,275 @@
+---
+title: "建站日志"
+description: '介绍建站过程 日志'
+pubDate: 2026-10-18
+updatedDate: 2026-10-20
+categories: ['Blog']
+tags: ['astro', 'vercel']
+excerpt: 介绍建站原因及过程。由于本人能力有限，这篇blog作为第一篇只是试水，不提供操作指南，相关内容请咨询AI，或者看themes原作者的网站
+---
+
+import Tabs from "../../components/mdx/Tabs.astro"
+import TabItem from "../../components/mdx/TabItem.astro"
+import Details from "../../components/mdx/Details.astro"
+
+> 由于本人能力有限，这篇blog作为第一篇只是试水，不提供操作指南，相关内容请咨询AI，或者看themes原作者的[网站](https://d-sketon.github.io/)
+
+
+<Tabs active={1} center={false}>
+  <TabItem title="2026-10-18">
+
+    ## 缘起
+
+    建站的直接原因是学校开展了**人工智能通识课**，结课作业是从 个人网站 小程序 APP 三个里面选择一个，在人工智能的辅助下完成。由于我假期自学过H5以及CSS，所以果断选择搭建个人网站。并且由于我折腾过服务器，所以想挑战下自己，于是堂堂建站之路开启ᕕ( ᐛ )ᕗ!!!
+
+    ## 过程
+
+    ### 第一天
+
+    和ChatGPT交流后，由于Ubuntu上有`node`，`npm`，`git`，所以决定在Ubuntu上进行操作。接着就让我`npm create astro@latest`。那么，这一步是什么呢？ChatGPT说是启动Astro的创建程序。我以前学习HTML以及CSS的原因就是想自己写个个人的网站，那是我天真且固执地想自己完全的写出来，这样的弊端就是完全不可能。所以当提到Astro的时候我完全不知道这是什么，~~虽然现在也是不太懂吧~~。在B站检索了下，发现了这个：[用 Astro 搭建一个高性能博客](https://www.bilibili.com/video/BV1i1421Z7ia/)。
+
+    按照他的步骤走了遍流程，其中themes使用的是up推荐的AstroPaper，部署使用的是Vercel，使用git在Ubuntu将网站传到github，Vercel监听github，部署网站，然后通过解析域名将网站从Vercel给到服务器。下面就是改改config.ts里的东西，搞成自己的就可以了。这个过程行云流水，万事俱备只欠东风，现在只需要写点内容就可以了...吗？
+
+    当我改完config，准备写内容时突然发现一个**小**问题，这个theme好像不支持中文啊!!!这不早说，我当时心态快炸了。我懒得搞什么i18n了，果断决定换一个theme。根据 ChatGPT 的推荐，我选择了现在使用的这个，由[D-Sketon](https://github.com/D-Sketon)大佬开发，一款hexo-theme-reimu的 Astro移植版本，博丽灵梦风格的 Astro [主题](https://github.com/D-Sketon/astro-theme-reimu)。
+
+    当时天色渐晚，我想快刀斩乱麻，直接将这个替换掉原来的那个，毕竟前面的那个我也没干什么，弃了就齐了。可是越忙越乱，ChatGPT给我的操作提示全是基于保护原来的那个，并且一直连不上github失败。当时我快着急死了，因为我电脑马上要没电了。我索性全删了，准备从头来过。
+
+    我重建了个repository，重新进行ssh，不知道由于什么原因，克隆下来后传到 Vercel 上又显示什么字体不对。我正打算问问ChatGPT大人，结果电脑关机了... (っ˘Д˘)ノ&lt;沉默不是代表我的错
+
+    ### 第二天
+
+    早上7点40多起来，距离9点半的选修课还有不到两个小时，我决定开始反击，ChatGPT叽里咕噜说了一大堆，基本没看懂，他猜测什么什么地方有错误，让我输入东西，然后结果复制给他，然后缩小范围，再输入东西...后来好像是 `pnpm run build` 发力了，就可以了( ﾟ∀。)
+
+    这个搞完，我就准备开始按照教程修改 config 了，由于有前面的经验，这次比较轻松。等到个性化的时候，由于个人头像大小不合适，又按照ChatGPT的指导，使用 `Pillow`将图片成功转化（这个家没ChatGPT迟早得散）。banner和ico目前还没找到合适的，就先用的原作者的。
+
+    接下来就是~~枯燥无味的~~内容了，正如你现在看到的，我在写日志...
+
+    ## 展望
+    接下来可能是进一步丰富网站内容吧，把banner、icon什么的搞好。内容的话，还没想好分享什么，考虑下要不要做个小游戏什么的...就先写到这里吧，我头太疼了，得去补觉了
+  </TabItem>
+  <TabItem title="2026-10-20">
+    昨天和今天对页面进行了优化以及一些修改
+
+    ## 页面优化
+    头图 首页分类封面 文章封面 都进行了修改，不过由于原图片非常大（3840*2160好像是），所以进行了压缩 伸慧姐真好看，美羽可爱捏ヾ(´ε`ヾ)
+
+    由于图片太大，加载都变慢了，会出现明显的未加载的黑色，又和ChatGPT进行了“交流”，不过好像是由于太过复杂，或者是我没给她完整的结构?ChatGPT较为成功解决了首页的加载问题。但是(~~又是可恶的但是~~)，当我兴致勃勃邀请我的舍友进行测试时，在点击blog时，页面直接卡死在了加载页面(~~这何尝不是一个看 莓乱扔logo 的好时机？~~)。当时已经熄灯断电，我靠着剩余电量，让ChatGPT回溯到了修改前的时候(这个时候还在依靠AI吗，那心很大了)。其实是因为commit的时候是自动生成的，写的很模糊，vercel也有提交记录，~~但是我懒得翻去了~~
+
+    ## 更新内容标签
+    原作者有个功能是 利用Tab标签在同一个页面中呈现多个内容。我想将这个功能用在更新blog上，正如你所看到的，点击上面的日期title，就可以做到更换内容，以及目录。(感谢ChatGPT神力)
+
+    ChatGPT一开始修改的时候，出现了两个问题
+    1. 切换Tab标签后，再次切换，目录不会改变
+    2. 目录全在第一个Tab上，新加的Tab的目录不显示，但是会显示Tab外的标题。没错，就是下面的推荐《草莓棉花糖》...
+    
+    向ChatGPT说明后，也是修改成功了。不过我完全看不懂，所以直接让她写了份解决方法放下面了...
+
+    <Details summary="解决方法">
+    # Astro Reimu：修复 Tab 切换时文章目录异常
+
+## 一、问题现象
+
+在 MDX 文章中使用 `<Tabs>` 和 `<TabItem>` 组件后，出现两个问题：
+
+1. 切换 Tab 后，文章目录可以改变，但再次切换回原来的 Tab 时，目录无法恢复。
+2. 目录识别错误，显示了不属于当前 Tab 的标题。
+
+## 二、定位问题
+
+涉及三个文件：
+
+- `src/components/mdx/Tabs.astro`：负责创建 Tab 标签、切换激活状态并触发事件。
+- `src/components/mdx/TabItem.astro`：负责包裹每个 Tab 的内容。
+- `src/components/sidebar/SidebarScript.astro`：负责筛选目录、重建目录树和绑定滚动监听。
+
+### 1. Tab 的 HTML 结构
+
+`TabItem.astro` 的核心代码：
+
+```astro
+<div class="tab-pane" data-tab-title={title}>
+  <slot />
+</div>
+```
+
+每个 Tab 的内容都位于 `.tab-pane` 中。当前选中的面板会添加 `.active` 类。
+
+### 2. Tab 切换事件
+
+`Tabs.astro` 的 `switchTab()` 函数负责切换 `.active` 类，并触发：
+
+```js
+tabs.dispatchEvent(
+  new CustomEvent("tabs:change", { bubbles: true })
+);
+```
+
+`SidebarScript.astro` 监听这个事件，在切换后更新目录：
+
+```ts
+function handleTabsChange() {
+  updateTocForActiveTab();
+  initTocScroll();
+}
+```
+
+因此，Tab 切换事件本身已经具备了通知目录刷新的机制。
+
+### 3. 根本原因：原始目录项丢失
+
+原来的 `updateTocForActiveTab()` 直接从当前 DOM 中获取目录项：
+
+```ts
+const allItems = Array.from(
+  root.querySelectorAll<HTMLLIElement>("li.toc-item"),
+);
+```
+
+随后，函数会筛选目录项、移除旧的子目录结构，并重建目录树。
+
+问题在于：不符合当前 Tab 条件的目录项会被移出 DOM。再次切换时，`querySelectorAll()` 只能找到仍然存在于 DOM 中的项目，已经移走的项目无法自动恢复。
+
+此外，原有逻辑会保留找不到对应标题的目录项：
+
+```ts
+if (!heading) return true;
+```
+
+这可能导致目录混入不属于当前 Tab 的项目。
+
+## 三、解决方法
+
+### 1. 缓存完整的原始目录项
+
+在 `SidebarScript.astro` 中，找到原有的两个变量：
+
+```ts
+let cleanupFunctions: (() => void)[] = [];
+let tocCleanupFunctions: (() => void)[] = [];
+```
+
+在下面添加：
+
+```ts
+const originalTocItems = new WeakMap<
+  HTMLOListElement,
+  HTMLLIElement[]
+>();
+```
+
+`WeakMap` 用于把每个目录列表与它最初的完整目录项集合关联起来。
+
+### 2. 从缓存中读取目录项
+
+将原来直接查询 DOM 的代码：
+
+```ts
+const allItems = Array.from(
+  root.querySelectorAll<HTMLLIElement>("li.toc-item"),
+);
+```
+
+替换为：
+
+```ts
+let allItems = originalTocItems.get(root);
+
+if (!allItems) {
+  allItems = Array.from(
+    root.querySelectorAll<HTMLLIElement>("li.toc-item"),
+  );
+
+  originalTocItems.set(root, allItems);
+}
+```
+
+这样，每次切换 Tab 时，都可以从完整的原始目录项集合重新筛选，而不是从上一次修改后的 DOM 中获取目录项。
+
+### 3. 修正目录筛选规则
+
+将原来保留找不到标题的目录项的逻辑：
+
+```ts
+if (!heading) return true;
+```
+
+改为：
+
+```ts
+if (!heading) return false;
+```
+
+完整的核心判断是：
+
+```ts
+const heading = document.getElementById(headingId);
+
+if (!heading) return false;
+
+const pane = heading.closest<HTMLElement>(".tab-pane");
+
+return !pane || pane.classList.contains("active");
+```
+
+含义：
+
+- 找不到对应标题：不显示该目录项。
+- 标题位于 Tab 外部：保留。
+- 标题位于 Tab 内部：只有当前激活的 Tab 才显示。
+
+### 4. 每次重新构建目录树
+
+筛选完成后，代码会清除旧的子目录结构，并根据 `toc-level-*` 类所表示的标题层级，重新创建 `ol.toc-child`，将目录项放回正确的位置。
+
+因此，目录不仅能够切换，还能保留原有的标题层级结构。
+
+## 四、验证方法
+
+修改后，在项目根目录运行：
+
+```bash
+pnpm run build
+```
+
+然后启动开发服务器：
+
+```bash
+pnpm run dev
+```
+
+依次测试：
+
+1. 打开第一个 Tab，检查目录。
+2. 切换到第二个 Tab，检查是否只显示当前 Tab 的标题。
+3. 切回第一个 Tab，确认原目录恢复。
+4. 多次来回切换，确认目录保持正确。
+5. 检查目录层级、滚动高亮和目录链接是否正常。
+
+最终，两个问题均已成功解决。
+
+## 五、本次学到的知识
+
+- **DOM 操作**：JavaScript 可以动态移动、删除和重建 HTML 元素。
+- **事件驱动**：Tab 切换后，通过自定义事件通知其他功能刷新。
+- **缓存原始数据**：如果操作会破坏原始结构，应保留数据来源，避免后续无法恢复。
+- **筛选与重建**：先根据当前状态筛选数据，再重建界面，比直接修改后丢弃原始数据更可靠。
+- **Debug 流程**：复现问题 → 定位相关文件 → 阅读调用关系 → 修改最小范围的代码 → 本地验证。
+
+本次修改的核心思想是：**保留完整的原始目录项，每次切换都重新筛选，再根据标题层级重建目录树。**
+
+    </Details>
+  </TabItem>
+</Tabs>
+
+
+---
+
+## 推荐[《草莓棉花糖》](https://www.bilibili.com/video/BV1Fx411w7m3/?spm_id_from=333.337.search-card.all.click&vd_source=24e6f5cc6bc1e84a76bd5dd182e9c980)
+<iframe
+  src="https://player.bilibili.com/player.html?isOutside=true&aid=111244&bvid=BV1Fx411w7m3&cid=185223&p=1&autoplay=0"
+  scrolling="no"
+  frameborder="0"
+  allowfullscreen
+  style="width: 100%; aspect-ratio: 16 / 9; border: none;"
+  loading="lazy"
+  title="Bilibili 视频播放器"></iframe>

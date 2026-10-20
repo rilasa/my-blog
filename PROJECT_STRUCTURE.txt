@@ -1,0 +1,170 @@
+.
+├── CHANGELOG.md
+├── LICENSE
+├── OFL.txt
+├── PROJECT_STRUCTURE.txt
+├── README.md
+├── astro.config.mjs
+├── eslint.config.js
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.cjs
+├── public
+│   ├── images
+│   │   ├── avatar.jpg
+│   │   ├── avatar.webp
+│   │   ├── banner-600w.webp
+│   │   ├── banner-800w.webp
+│   │   ├── banner.jpg
+│   │   ├── banner.webp
+│   │   ├── banner1.webp
+│   │   ├── category-cover.webp
+│   │   ├── cover
+│   │   │   ├── cover1.webp
+│   │   │   ├── cover2.webp
+│   │   │   ├── cover3.webp
+│   │   │   ├── cover4.webp
+│   │   │   ├── cover5.webp
+│   │   │   └── cover6.webp
+│   │   ├── favicon.ico
+│   │   ├── my-loader.gif
+│   │   ├── reimu.png
+│   │   └── taichi.png
+│   └── robots.txt
+├── screenshot.png
+├── src
+│   ├── assets
+│   │   └── LXGWWenKaiScreen.ttf
+│   ├── components
+│   │   ├── AfterFooter.astro
+│   │   ├── ArchiveList.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── HomeCategories.astro
+│   │   ├── MobileNav.astro
+│   │   ├── Pagination.astro
+│   │   ├── Sidebar.astro
+│   │   ├── Widget.astro
+│   │   ├── mdx
+│   │   │   ├── AlertBlockquote.astro
+│   │   │   ├── Details.astro
+│   │   │   ├── FriendCard.astro
+│   │   │   ├── Gallery.astro
+│   │   │   ├── Grid.astro
+│   │   │   ├── GridCell.astro
+│   │   │   ├── HeatMapCard.astro
+│   │   │   ├── Link.astro
+│   │   │   ├── TabItem.astro
+│   │   │   ├── Tabs.astro
+│   │   │   └── TagRoulette.astro
+│   │   ├── partial
+│   │   │   ├── BaiduAnalytics.astro
+│   │   │   ├── CategoryList.astro
+│   │   │   ├── Clarity.astro
+│   │   │   ├── CommonMeta.astro
+│   │   │   ├── GoogleAnalytics.astro
+│   │   │   ├── HeaderLink.astro
+│   │   │   ├── HeaderSubTitle.astro
+│   │   │   ├── HeaderTitle.astro
+│   │   │   ├── Loader.astro
+│   │   │   ├── Loader.astro.bak
+│   │   │   ├── Loader.astro.bak2
+│   │   │   ├── RssBtn.tsx
+│   │   │   ├── SearchBox.tsx
+│   │   │   ├── SearchBtn.tsx
+│   │   │   ├── TagList.astro
+│   │   │   ├── ThemeBtn.tsx
+│   │   │   ├── ThemeScript.astro
+│   │   │   ├── ToTop.tsx
+│   │   │   └── VendorScript.astro
+│   │   ├── post
+│   │   │   ├── Category.astro
+│   │   │   ├── Comment.astro
+│   │   │   ├── CommentCount.astro
+│   │   │   ├── Copyright.astro
+│   │   │   ├── Date.astro
+│   │   │   ├── Nav.astro
+│   │   │   ├── Outdate.astro
+│   │   │   ├── ReadingCount.astro
+│   │   │   ├── Share.astro
+│   │   │   ├── ShareScript.astro
+│   │   │   ├── Sponsor.astro
+│   │   │   ├── Tag.astro
+│   │   │   └── comment
+│   │   │       ├── DisqusComment.astro
+│   │   │       ├── GiscusComment.astro
+│   │   │       ├── GitalkComment.astro
+│   │   │       ├── TwikooComment.astro
+│   │   │       ├── UtterancesComment.astro
+│   │   │       ├── ValineComment.astro
+│   │   │       └── WalineComment.astro
+│   │   ├── sidebar
+│   │   │   ├── CommonSidebar.astro
+│   │   │   ├── SidebarScript.astro
+│   │   │   ├── SidebarWrapper.astro
+│   │   │   ├── SocialList.astro
+│   │   │   ├── TocItem.astro
+│   │   │   └── TocSidebar.astro
+│   │   └── widget
+│   │       ├── CategoryWidget.astro
+│   │       ├── RecentPostsWidget.astro
+│   │       ├── TagWidget.astro
+│   │       └── TagcloudWidget.astro
+│   ├── config.ts
+│   ├── content
+│   │   └── blog
+│   │       ├── test-tab.mdx
+│   │       └── website-creation-log.mdx
+│   ├── content.config.ts
+│   ├── covers.ts
+│   ├── env.d.ts
+│   ├── global.d.ts
+│   ├── hooks
+│   │   └── useTheme.ts
+│   ├── languages
+│   │   ├── en.ts
+│   │   ├── ja.ts
+│   │   ├── zh-cn.ts
+│   │   └── zh-tw.ts
+│   ├── layouts
+│   │   ├── BaseLayout.astro
+│   │   ├── BlogLayout.astro
+│   │   └── MarkdownLayout.astro
+│   ├── pages
+│   │   ├── 404.astro
+│   │   ├── [...page].astro
+│   │   ├── about.mdx
+│   │   ├── archives
+│   │   │   └── [...page].astro
+│   │   ├── blog
+│   │   │   └── [...slug].astro
+│   │   ├── categories
+│   │   │   └── [category]
+│   │   │       └── [...page].astro
+│   │   ├── rss.xml.js
+│   │   ├── search.json.ts
+│   │   └── tags
+│   │       └── [tag]
+│   │           └── [...page].astro
+│   ├── plugins
+│   │   ├── lazyLoadImage.mjs
+│   │   └── mermaid.mjs
+│   ├── styles
+│   │   ├── base.stylus
+│   │   ├── container.stylus
+│   │   ├── global.css
+│   │   ├── markdown.stylus
+│   │   ├── search.stylus
+│   │   └── top.stylus
+│   └── utils
+│       ├── config.ts
+│       ├── formatDate.ts
+│       ├── i18n.ts
+│       ├── parseHomeCategories.ts
+│       ├── randomCover.ts
+│       ├── stripHTML.ts
+│       ├── urlFor.ts
+│       └── wordCount.ts
+└── tsconfig.json
+
+28 directories, 140 files
